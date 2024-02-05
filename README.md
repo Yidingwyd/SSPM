@@ -9,3 +9,5 @@ The package provides two major functions:
    c) Predict the composition of a specific crystal structure type;
    d) Predict the lattice parameters of a material with specific composition and crystal structure type.
 
+This package requires: pytorch, scikit-learn, pymatgen, pandas, numpy, scipy.
+
