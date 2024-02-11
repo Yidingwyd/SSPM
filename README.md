@@ -8,6 +8,7 @@ The package provides two major functions:
    * Predict the composition of a specific crystal structure;
    * Predict the composition of a specific crystal structure type;
    * Predict the lattice parameters of a material with specific composition and crystal structure type.
+
 We construct SSPM based on [CGCNN](https://github.com/txie-93/cgcnn).
 
 # Prerequisites
