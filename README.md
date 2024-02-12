@@ -27,14 +27,12 @@ After defining a dataset in `rootdir`, you can train a SSPM model by:
 ```
 python main.py --task classification  rootdir
 ```
-You can set the number of training, validation, and test data with labels `--train-size`, `--val-size`, and `--test-size`. Alternatively, you may use the flags `--train-ratio`, `--val-ratio`, `--test-ratio` instead. 
-
+You can set the number of training, validation, and test data with labels `--train-size`, `--val-size`, and `--test-size`. Alternatively, you may use the flags `--train-ratio`, `--val-ratio`, `--test-ratio` instead.  
 You can also set the hidden feature length, i.e., the length of atomic representations with the label `--h-fea-len`. Default is 128.
 
-After training, you will get three files in this directory.
+After training, you will get three files in this directory:
 
-`model_best.pth.tar` and `test_results.csv`: Due to the development based on [CGCNN](https://github.com/txie-93/cgcnn) code, they are currently useless and need to be optimized in later versions.
-
+`model_best.pth.tar` and `test_results.csv`: Due to the development based on [CGCNN](https://github.com/txie-93/cgcnn) code, they are currently useless and need to be optimized in later versions.  
 `checkpoint.pth.tar`: stores the SSPM model at the last epoch.
 
 ## Get the atomic representations using the pre-trained model
