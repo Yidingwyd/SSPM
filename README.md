@@ -40,13 +40,13 @@ Change the parameters `h_fea_len` and `modelpath` in `get_ele_vec.py`, then run 
 After that, you will get a `element vec.xlsx`, storing unbiased atomic representations for downstream composition-only machine learning models.
 
 ## Predict the composition of a specific crystal structure
-Firstly, we need to construct a dataset of the crystal structrue with all the combinations of chemical elements and masked nodes. The requirement of this dataset is the same as [Define a customized dataset](https://github.com/Yidingwyd/SSPM/blob/main/README.md#define-a-customized-dataset).   
+Firstly, you need to construct a dataset of the crystal structrue with all the combinations of chemical elements and masked nodes. The requirement of this dataset is the same as [Define a customized dataset](https://github.com/Yidingwyd/SSPM/blob/main/README.md#define-a-customized-dataset).   
 `create_structure_cif.py` in `./data` can help to create datasets with B2, D03 and L12 crystal structures of different lattice parameters.  
 Then, run the following code to estimate the likelihood of different elements in given crystal structures.
 ```
 python predict.py pre-trained_model_path dataset_path
 ```
-After running prediction, you will get a `test_results.csv`, where the first colum is the material IDs, and the other colunmns are the probabilities of different elements in a given crystal structure environment.  
+After running prediction, you will get a `test_results.csv`, where the first colum is the material IDs, and the other colunmns are the probabilities of different elements in a given crystal structure environment.
 
 Next, to solve the overdetermined equations, you need to run `joint_probability.py` in `./data`. You will need to define the lattice_range, result_path, and save_path in the codes.
 
@@ -56,6 +56,8 @@ Finally, run `AB_XY.py` in `./data` to get the top k compositions of a given cry
 
 Notably, the scripts only support cubic crystals by now. For advanced users, if you want to predict a single crystal structure, you can refer to the `equation` class in `joint_probability.py` and the `find_largest` class in `AB_XY.py`.   
 
+## Predict the composition of a specific crystal structure type
+Firstly, run `ABX_Y.py` in `./data` to deduce p(A,B,X|Y). In this program, miu and sigma are the mean value and the standard deviation of the 
 
 # Acknowledgement
 We developed SSPM based on [CGCNN](https://github.com/txie-93/cgcnn).
