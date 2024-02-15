@@ -10,7 +10,7 @@ The package provides two major functions:
    * Predict the lattice parameters of a material with specific composition and crystal structure type.
 
 # Contents
-* [How to cite]()
+* [How to cite](https://github.com/Yidingwyd/SSPM/blob/main/README.md#how-to-cite)
 * [Prerequisites]()
 * [Usage]()
   * [Define a customized dataset]()
