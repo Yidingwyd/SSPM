@@ -11,16 +11,16 @@ The package provides two major functions:
 
 # Contents
 * [How to cite](https://github.com/Yidingwyd/SSPM/blob/main/README.md#how-to-cite)
-* [Prerequisites]()
-* [Usage]()
-  * [Define a customized dataset]()
-  * [Train a SSPM model]()
-  * [Get the atomic representations using the pre-trained model]()
-  * [Predict the composition of a specific crystal structure]()
-  * [Predict the lattice parameters of a material with specific composition and crystal structure type]()
-  * [Predict the composition of a specific crystal structure type]()
-* [Data]()
-* [Acknowledgement]()
+* [Prerequisites](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#prerequisites)
+* [Usage](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#usage)
+  * [Define a customized dataset](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#define-a-customized-dataset)
+  * [Train a SSPM model](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#train-a-sspm-model)
+  * [Get the atomic representations using the pre-trained model](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#get-the-atomic-representations-using-the-pre-trained-model)
+  * [Predict the composition of a specific crystal structure](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#predict-the-composition-of-a-specific-crystal-structure)
+  * [Predict the lattice parameters of a material with specific composition and crystal structure type](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#predict-the-lattice-parameters-of-a-material-with-specific-composition-and-crystal-structure-type)
+  * [Predict the composition of a specific crystal structure type](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#predict-the-composition-of-a-specific-crystal-structure-type)
+* [Data](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#data)
+* [Acknowledgement](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#acknowledgement)
 
 # How to cite
 Our paper is under review.
