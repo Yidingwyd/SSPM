@@ -83,7 +83,7 @@ Run `AB_Y.py` in `./data` to deduce P(A,B|Y). Also, you need to define the param
 In the `xlsx` file you get, the compositions are ranked by P(A,B|Y) from largest to smallest.
 
 # Data
-To reproduce our paper, you can download the corresponding datasets and convert them into proper formats. Please cite the relevant papers as requested by the dataset authors.
+To reproduce our paper, you can download the corresponding `datasets` and convert them into proper formats. Please cite the relevant papers as requested by the dataset authors.
 
 # Acknowledgement
-We developed SSPM based on [CGCNN](https://github.com/txie-93/cgcnn).
+We developed SSPM based on [CGCNN](https://github.com/txie-93/cgcnn). The codes are constructed by the assistance of Tianqing Li and Jinhan Xu.
