@@ -34,9 +34,9 @@ To input crystal structures to SSPM, you will need to define a customized datase
 You will need CIF files recording the masked crystal structures, a `id_prop.csv` file, and a `atom_init.json` file.
 * For the CIF files, the masked atoms are taken as Am element.
 * For the `id_prop.csv` file, there are two columns, where the first column recodes a unique ID for each crystal and the second column recodes the atomic number of the masked atoms.
-* The `atom_init.json` file stores the initialization vector for each element. An example of `atom_init.json` is `./data/my_data_path/atom_init.json`, which should be good for most applications.
+* The `atom_init.json` file stores the initialization vector for each element. An example of [`atom_init.json`](https://github.com/Yidingwyd/SSPM/blob/main/data/my_data_path/atom_init.json) is [`./data/my_data_path`](https://github.com/Yidingwyd/SSPM/tree/main/data/my_data_path), which should be good for most applications.
 
-Alternatively, if you have json files recording stable crystal structures like that in `'./data/binary.json'`, `get_my_data.py` might help you to generate your dataset automatively.
+Alternatively, if you have json files recording stable crystal structures like that in [`./data/binary.json`](https://github.com/Yidingwyd/SSPM/blob/main/data/binary.json), [`get_my_data.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/get_my_data.py) might help you to generate your dataset automatively.
 
 ## Train a SSPM model
 After defining a dataset in `rootdir`, you can train a SSPM model by:
@@ -51,34 +51,34 @@ After training, you will get three files in this directory:
 `checkpoint.pth.tar`: Stores the SSPM model at the last epoch.
 
 ## Get the atomic representations using the pre-trained model
-Change the parameters `h_fea_len` and `modelpath` in `get_ele_vec.py`, then run `get_ele_vec.py`. You can also use our pre-trained model in `./pre-trained`.
+Change the parameters `h_fea_len` and `modelpath` in [`get_ele_vec.py`](https://github.com/Yidingwyd/SSPM/blob/main/get_ele_vec.py), then run `get_ele_vec.py`. You can also use our pre-trained model in [`./pre-trained`](https://github.com/Yidingwyd/SSPM/tree/main/pre-trained).
 
 After that, you will get a `element vec.xlsx`, storing unbiased atomic representations for downstream composition-only machine learning models.
 
 ## Predict the composition of a specific crystal structure
 Firstly, you need to construct a dataset of the crystal structrue with all the combinations of chemical elements and masked nodes. The requirement of this dataset is the same as [Define a customized dataset](https://github.com/Yidingwyd/SSPM/blob/main/README.md#define-a-customized-dataset).   
-`create_structure_cif.py` in `./data` can help to create datasets with B2, D03 and L12 crystal structures of different lattice parameters.  
+[`create_structure_cif.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/create_structure_cif.py) in [`./data`](https://github.com/Yidingwyd/SSPM/tree/main/data) can help to create datasets with B2, D03 and L12 crystal structures of different lattice parameters.  
 Then, run the following code to estimate the likelihood of different elements in given crystal structures.
 ```
 python predict.py pre-trained_model_path dataset_path
 ```
 After running prediction, you will get a `test_results.csv`, where the first colum is the material IDs, and the other colunmns are the probabilities of different elements in a given crystal structure environment.
 
-Next, to solve the overdetermined equations, you need to run `joint_probability.py` in `./data`. You will need to define the lattice_range, result_path, and save_path in the codes.
+Next, to solve the overdetermined equations, you need to run [`joint_probability.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/joint_probability.py) in [`./data`](https://github.com/Yidingwyd/SSPM/tree/main/data). You will need to define the lattice_range, result_path, and save_path in the codes.
 
-After solving the equations, you will get a `xlsx` file, where the first column is the different lattice parameters, and the other columns are probabilities for different compositions. Our results for B2, D03, and L12 crystal structures are stored in `.\data\B2-structure\B2_struct_pred.xlsx`, `.\data\D03-structure\D03_struct_pred.xlsx`, and `.\data\L12-structure\L12_struct_pred.xlsx`, respectively.
+After solving the equations, you will get an `xlsx` file, where the first column is the different lattice parameters, and the other columns are probabilities for different compositions. Our results for B2, D03, and L12 crystal structures are stored in [`.\data\B2-structure\B2_struct_pred.xlsx`](https://github.com/Yidingwyd/SSPM/blob/main/data/B2-structure/B2_struct_pred.xlsx), `.\data\D03-structure\D03_struct_pred.xlsx`, and [`.\data\L12-structure\L12_struct_pred.xlsx`](https://github.com/Yidingwyd/SSPM/blob/main/data/L12-structure/L12_struct_pred.xlsx), respectively.
 
-Finally, run `AB_XY.py` in `./data` to get the top k compositions of a given crystal structure.
+Finally, run [`AB_XY.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/AB_XY.py) in [`./data`](https://github.com/Yidingwyd/SSPM/tree/main/data) to get the top k compositions of a given crystal structure.
 
-Notably, the scripts only support cubic crystals by now. For advanced users, if you want to predict a single crystal structure, you can refer to the `equation` class in `joint_probability.py` and the `find_largest` class in `AB_XY.py`.   
+Notably, the scripts only support cubic crystals by now. For advanced users, if you want to predict a single crystal structure, you can refer to the `equation` class in [`joint_probability.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/joint_probability.py) and the `find_largest` class in [`AB_XY.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/AB_XY.py).   
 
 ## Predict the lattice parameters of a material with specific composition and crystal structure type
-Run `ABX_Y.py` in `./data` to deduce p(A,B,X|Y). In this program, `miu` and `sigma` are the mean value and the standard deviation of the statistics lattice parameters by maximum likelihood estimation. You should also change the `result_path` (the path of the above results) and `save_path` (where to save the results of this step) parameters.
+Run [`ABX_Y.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/ABX_Y.py) in [`./data`](https://github.com/Yidingwyd/SSPM/tree/main/data) to deduce p(A,B,X|Y). In this program, `miu` and `sigma` are the mean value and the standard deviation of the statistics lattice parameters by maximum likelihood estimation. You should also change the `result_path` (the path of the above results) and `save_path` (where to save the results of this step) parameters.
 
 In the `xlsx` file you get, each column represents a different composition from the second to the last. Select the column of the composition of interest and sort them from largest to smallest. The lattice parameter corresponding to the maximum value is the predicted value.
 
 ## Predict the composition of a specific crystal structure type
-Run `AB_Y.py` in `./data` to deduce P(A,B|Y). Also, you need to define the parameters of `miu`, `sigma` , `step` (the lattice parameter step defined in `joint_probability.py`), `abx_y_path`, and `save_path`. Here, approximate results are deduced by integration of miu ± 2 * sigma.
+Run [`AB_Y.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/AB_Y.py) in [`./data`](https://github.com/Yidingwyd/SSPM/tree/main/data) to deduce P(A,B|Y). Also, you need to define the parameters of `miu`, `sigma` , `step` (the lattice parameter step defined in [`joint_probability.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/joint_probability.py)), `abx_y_path`, and `save_path`. Here, approximate results are deduced by integration of miu ± 2 * sigma.
 
 In the `xlsx` file you get, the compositions are ranked by P(A,B|Y) from largest to smallest.
 
