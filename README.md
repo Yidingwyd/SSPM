@@ -9,6 +9,22 @@ The package provides two major functions:
    * Predict the composition of a specific crystal structure type;
    * Predict the lattice parameters of a material with specific composition and crystal structure type.
 
+# Contents
+* [How to cite]()
+* [Prerequisites]()
+* [Usage]()
+  * [Define a customized dataset]()
+  * [Train a SSPM model]()
+  * [Get the atomic representations using the pre-trained model]()
+  * [Predict the composition of a specific crystal structure]()
+  * [Predict the lattice parameters of a material with specific composition and crystal structure type]()
+  * [Predict the composition of a specific crystal structure type]()
+* [Data]()
+* [Acknowledgement]()
+
+# How to cite
+Our paper is under review.
+
 # Prerequisites
 This package requires: pytorch, scikit-learn, pymatgen, pandas, numpy, scipy.
 
@@ -56,8 +72,18 @@ Finally, run `AB_XY.py` in `./data` to get the top k compositions of a given cry
 
 Notably, the scripts only support cubic crystals by now. For advanced users, if you want to predict a single crystal structure, you can refer to the `equation` class in `joint_probability.py` and the `find_largest` class in `AB_XY.py`.   
 
+## Predict the lattice parameters of a material with specific composition and crystal structure type
+Run `ABX_Y.py` in `./data` to deduce p(A,B,X|Y). In this program, `miu` and `sigma` are the mean value and the standard deviation of the statistics lattice parameters by maximum likelihood estimation. You should also change the `result_path` (the path of the above results) and `save_path` (where to save the results of this step) parameters.
+
+In the `xlsx` file you get, each column represents a different composition from the second to the last. Select the column of the composition of interest and sort them from largest to smallest. The lattice parameter corresponding to the maximum value is the predicted value.
+
 ## Predict the composition of a specific crystal structure type
-Firstly, run `ABX_Y.py` in `./data` to deduce p(A,B,X|Y). In this program, miu and sigma are the mean value and the standard deviation of the 
+Run `AB_Y.py` in `./data` to deduce P(A,B|Y). Also, you need to define the parameters of `miu`, `sigma` , `step` (the lattice parameter step defined in `joint_probability.py`), `abx_y_path`, and `save_path`. Here, approximate results are deduced by integration of miu ± 2 * sigma.
+
+In the `xlsx` file you get, the compositions are ranked by P(A,B|Y) from largest to smallest.
+
+# Data
+To reproduce our paper, you can download the corresponding datasets and convert them into proper formats. Please cite the relevant papers as requested by the dataset authors.
 
 # Acknowledgement
 We developed SSPM based on [CGCNN](https://github.com/txie-93/cgcnn).
