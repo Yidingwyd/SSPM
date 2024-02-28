@@ -86,4 +86,4 @@ In the `xlsx` file you get, the compositions are ranked by P(A,B|Y) from largest
 To reproduce our paper, you can download the corresponding `datasets` and convert them into proper formats. Please cite the relevant papers as requested by the dataset authors.
 
 # Acknowledgement
-We developed SSPM based on [CGCNN](https://github.com/txie-93/cgcnn). The codes are constructed by the assistance of Tianqing Li and Jinhan Xu.
+We developed SSPM based on [CGCNN](https://github.com/txie-93/cgcnn). The codes are constructed by the assistance of Tianqing Li.
