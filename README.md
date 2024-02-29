@@ -23,7 +23,7 @@ The package provides two major functions:
 * [Acknowledgement](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#acknowledgement)
 
 # How to cite
-Our paper is under review.
+Our paper is in submission.
 
 # Prerequisites
 This package requires: pytorch, scikit-learn, pymatgen, pandas, numpy, scipy.
