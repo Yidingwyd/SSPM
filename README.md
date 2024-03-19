@@ -88,7 +88,7 @@ Because of the substantial increase in time and spatial complexity when solving 
 Here is an example for Heusler compounds. Run [`get_heusler_cond.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/get_heusler_cond.py) first to extract conditional probabilities from `test_results.csv`. You need to define `lattice_para` in the script. After that, you will get three `xlsx` files, `C_AB.xlsx`, `B_AC.xlsx` and `A_BC.xlsx`. Then, run [`gibbs_sampling_heusler.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/gibbs_sampling_heusler.py), in which `iterations` is the number of Gibbs sampling steps you want, and `excel_path` is where to save P(A,B,C|X=lattice_para,Y=Heusler). 
 
 # Data
-To reproduce our paper, you can download the corresponding `datasets` and convert them into proper formats. Please cite the relevant papers as requested by the dataset authors.
+The data we use is collected from [`Materials Project`](https://next-gen.materialsproject.org/). The formulas and space groups are available in [`dataset.csv`](https://github.com/Yidingwyd/SSPM/blob/main/data/dataset.csv). To reproduce our paper, you can download the corresponding dataset and convert into proper formats. Please cite the relevant papers as requested by the dataset authors.
 
 # Acknowledgement
 We developed the self-supervised learning model based on [CGCNN](https://github.com/txie-93/cgcnn).
