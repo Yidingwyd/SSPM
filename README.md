@@ -55,6 +55,8 @@ Change the parameters `h_fea_len` and `modelpath` in [`get_ele_vec.py`](https://
 
 After that, you will get a `element vec.xlsx`, storing unbiased atomic representations for downstream composition-only machine learning models.
 
+Our learnt atomic representations are stored in [`element vec.xlsx`](https://github.com/Yidingwyd/SSPM/blob/main/pre-trained/element%20vec.xlsx).
+
 ## Predict the composition of a specific crystal structure
 Firstly, you need to construct a dataset of the crystal structrue with all the combinations of chemical elements and masked nodes. The requirement of this dataset is the same as [Define a customized dataset](https://github.com/Yidingwyd/SSPM/blob/main/README.md#define-a-customized-dataset).   
 [`create_structure_cif.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/create_structure_cif.py) in [`./data`](https://github.com/Yidingwyd/SSPM/tree/main/data) can help to create datasets with B2, D03 and L12 crystal structures of different lattice parameters.  
@@ -66,7 +68,7 @@ After running prediction, you will get a `test_results.csv`, where the first col
 
 Next, to solve the overdetermined equations, you need to run [`joint_probability.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/joint_probability.py) in [`./data`](https://github.com/Yidingwyd/SSPM/tree/main/data). You will need to define the lattice_range, result_path, and save_path in the codes.
 
-After solving the equations, you will get an `xlsx` file, where the first column is the different lattice parameters, and the other columns are probabilities for different compositions. Our results for B2, D03, and L12 crystal structures are stored in [`.\data\B2-structure\B2_struct_pred.xlsx`](https://github.com/Yidingwyd/SSPM/blob/main/data/B2-structure/B2_struct_pred.xlsx), [`.\data\D03-structure\D03_struct_pred.rar`](https://github.com/Yidingwyd/SSPM/blob/main/data/D03-structure/D03_struct_pred.rar), and [`.\data\L12-structure\L12_struct_pred.xlsx`](https://github.com/Yidingwyd/SSPM/blob/main/data/L12-structure/L12_struct_pred.xlsx), respectively.
+After solving the equations, you will get an `xlsx` file, where the first column is the different lattice parameters, and the other columns are probabilities for different compositions. Our results for B2, D03, and L12 crystal structures are stored in [`B2_struct_pred.xlsx`](https://github.com/Yidingwyd/SSPM/blob/main/data/B2-structure/B2_struct_pred.xlsx), [`D03_struct_pred.rar`](https://github.com/Yidingwyd/SSPM/blob/main/data/D03-structure/D03_struct_pred.rar), and [`L12_struct_pred.xlsx`](https://github.com/Yidingwyd/SSPM/blob/main/data/L12-structure/L12_struct_pred.xlsx), respectively.
 
 Finally, run [`AB_XY.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/AB_XY.py) in [`./data`](https://github.com/Yidingwyd/SSPM/tree/main/data) to get the top k compositions of a given crystal structure.
 
@@ -77,15 +79,21 @@ Run [`ABX_Y.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/ABX_Y.py) in [
 
 In the `xlsx` file you get, each column represents a different composition from the second to the last. Select the column of the composition of interest and sort them from largest to smallest. The lattice parameter corresponding to the maximum value is the predicted value.
 
+Our predictions are stored in [`ABX_B2.xlsx`](https://github.com/Yidingwyd/SSPM/blob/main/data/B2-structure/ABX_B2.xlsx), [`ABX_D03.rar`](https://github.com/Yidingwyd/SSPM/blob/main/data/D03-structure/ABX_D03.rar) and [`ABX_L12.xlsx`](https://github.com/Yidingwyd/SSPM/blob/main/data/L12-structure/ABX_L12.xlsx), respectively.
+
 ## Predict the composition of a specific crystal structure type
 Run [`AB_Y.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/AB_Y.py) in [`./data`](https://github.com/Yidingwyd/SSPM/tree/main/data) to deduce P(A,B|Y). Also, you need to define the parameters of `miu`, `sigma` , `step` (the lattice parameter step defined in [`joint_probability.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/joint_probability.py)), `abx_y_path`, and `save_path`. Here, approximate results are deduced by integration of miu ± 2 * sigma.
 
 In the `xlsx` file you get, the compositions are ranked by P(A,B|Y) from largest to smallest.
 
+Our predictions are stored in [`AB_B2.xlsx`](https://github.com/Yidingwyd/SSPM/blob/main/data/B2-structure/AB_B2.xlsx), [`AB_D03.xlsx`](https://github.com/Yidingwyd/SSPM/blob/main/data/D03-structure/AB_D03.xlsx) and [`AB_L12.xlsx`](https://github.com/Yidingwyd/SSPM/blob/main/data/L12-structure/AB_L12.xlsx),respectively.
+
 ## Gibbs sampling
 Because of the substantial increase in time and spatial complexity when solving equations, Gibbs sampling makes a valuable tool for enhancing inference efficiency to predict the composition of a specific crystal structure.
 
 Here is an example for Heusler compounds. Run [`get_heusler_cond.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/get_heusler_cond.py) first to extract conditional probabilities from `test_results.csv`. You need to define `lattice_para` in the script. After that, you will get three `xlsx` files, `C_AB.xlsx`, `B_AC.xlsx` and `A_BC.xlsx`. Then, run [`gibbs_sampling_heusler.py`](https://github.com/Yidingwyd/SSPM/blob/main/data/gibbs_sampling_heusler.py), in which `iterations` is the number of Gibbs sampling steps you want, and `excel_path` is where to save P(A,B,C|X=lattice_para,Y=Heusler). 
+
+The Gibbs sampling results for Heusler crystal structures are stored in [`Heusler_prediction.xlsx`](https://github.com/Yidingwyd/SSPM/blob/main/data/Heusler-structure/Heusler_prediction.xlsx).
 
 # Data
 The data we use is collected from [`Materials Project`](https://next-gen.materialsproject.org/). The formulas and space groups are available in [`dataset.csv`](https://github.com/Yidingwyd/SSPM/blob/main/data/dataset.csv). To reproduce our paper, you can download the corresponding dataset and convert into proper formats. Please cite the relevant papers as requested by the dataset authors.
