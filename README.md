@@ -19,6 +19,7 @@ The package provides two major functions:
   * [Predict the composition of a specific crystal structure](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#predict-the-composition-of-a-specific-crystal-structure)
   * [Predict the lattice parameters of a material with specific composition and crystal structure type](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#predict-the-lattice-parameters-of-a-material-with-specific-composition-and-crystal-structure-type)
   * [Predict the composition of a specific crystal structure type](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#predict-the-composition-of-a-specific-crystal-structure-type)
+  * [Gibbs sampling](https://github.com/Yidingwyd/SSPM?tab=readme-ov-file#gibbs-sampling)
 * [Data](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#data)
 * [Acknowledgement](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#acknowledgement)
 
