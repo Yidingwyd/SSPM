@@ -21,7 +21,6 @@ The package provides two major functions:
   * [Predict the composition of a specific crystal structure type](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#predict-the-composition-of-a-specific-crystal-structure-type)
   * [Gibbs sampling](https://github.com/Yidingwyd/SSPM?tab=readme-ov-file#gibbs-sampling)
 * [Data](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#data)
-* [Acknowledgement](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#acknowledgement)
 
 # How to cite
 Our paper is in submission. Coming later.
@@ -98,6 +97,3 @@ The Gibbs sampling results for Heusler crystal structures are stored in [`Heusle
 
 # Data
 The data we use is collected from [`Materials Project`](https://next-gen.materialsproject.org/). The formulas and space groups are available in [`dataset.csv`](https://github.com/Yidingwyd/SSPM/blob/main/data/dataset.csv). To reproduce our paper, you can download the corresponding dataset and convert into proper formats. Please cite the relevant papers as requested by the dataset authors.
-
-# Acknowledgement
-We developed the self-supervised learning model based on [CGCNN](https://github.com/txie-93/cgcnn).
