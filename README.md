@@ -23,7 +23,7 @@ The package provides two major functions:
 * [Data](https://github.com/Yidingwyd/SSPM/tree/main?tab=readme-ov-file#data)
 
 # How to cite
-Our paper is in submission. Coming later.
+Wang, Y., Li, T., Zong, H. et al. Self-supervised probabilistic models for exploring shape memory alloys. npj Comput Mater 10, 185 (2024). https://doi.org/10.1038/s41524-024-01379-3
 
 # Prerequisites
 This package requires: pytorch, scikit-learn, pymatgen, pandas, numpy, scipy.
