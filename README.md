@@ -97,3 +97,6 @@ The Gibbs sampling results for Heusler crystal structures are stored in [`Heusle
 
 # Data
 The data we use is collected from [`Materials Project`](https://next-gen.materialsproject.org/). The formulas and space groups are available in [`dataset.csv`](https://github.com/Yidingwyd/SSPM/blob/main/data/dataset.csv). To reproduce our paper, you can download the corresponding dataset and convert into proper formats. Please cite the relevant papers as requested by the dataset authors.
+
+# Acknowledgement  
+Codes of the SSPM are developed based on [CGCNN](https://github.com/txie-93/cgcnn, which is licensed under the MIT License. We recommend to cite their works.  
